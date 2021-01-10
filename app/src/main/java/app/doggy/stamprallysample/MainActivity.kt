@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
     // lateinit: late initialize to avoid checking null
     private lateinit var locationManager: LocationManager
 
-    var locationInfo: MutableList<Double> = mutableListOf()
+    var locationInfo: MutableList<Double> = mutableListOf(0.0,0.0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -141,13 +141,13 @@ class MainActivity : AppCompatActivity(), LocationListener {
         val latitudeTextView = findViewById<TextView>(R.id.latitudeTextView)
         val str1 = "北緯:" + location.getLatitude() + "度"
         latitudeTextView.text = str1
-        locationInfo.add(location.getLatitude())
+        locationInfo[0] = location.getLatitude()
 
         // Longitude
         val longitudeTextView = findViewById<TextView>(R.id.longitudeTextView)
         val str2 = "東経:" + location.getLongitude() + "度"
         longitudeTextView.text = str2
-        locationInfo.add(location.getLongitude())
+        locationInfo[1] = location.getLongitude()
 
     }
 
